@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest    #github提供的虚拟环境
 
     steps:
-      - users: actions/checkout@v1     #检出整个项目的副本
-      - users: actions/setup-python@v1
+      - uses: actions/checkout@v1     #检出整个项目的副本
+      - uses: actions/setup-python@v1
         with:
           python-version: '3.x'
       - uses: actions/cache@v2     #缓存安装的依赖库，提高运行效率
