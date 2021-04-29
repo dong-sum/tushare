@@ -1,2 +1,2 @@
-
- tushare
+tushare==1.2.62
+pandas==0.23.4
