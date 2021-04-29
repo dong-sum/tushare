@@ -8,8 +8,7 @@ import os
 
 #筛选近20 交易日出现突破120日线的标的
 #2020-12-26增加规则：股价在250日线上方
-path = './resource/清则300-12月10日.txt'
-# path = './resource/清则70.txt'
+path = './resource/data.txt'
 writeM250Path = './result/{}/filter{}-M250.txt'
 writeM120Path = './result/{}/filter{}-M120.txt'
 writeM60Path = './result/{}/filter{}-M60.txt'
