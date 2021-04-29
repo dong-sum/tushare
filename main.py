@@ -29,6 +29,7 @@ def writeM250():
 
     count = 0
     for line in qz_value:
+        print(line)
         line = line.replace('\n', '')
         first = line[0]
         if first == '0' or first == '3':
