@@ -19,39 +19,43 @@ if not isExists:
     os.makedirs('./result/' + date)
 
 def writeM250():
-    print("M250筛选，文件写入执行开始")
-    date = str(datetime.now().date()).replace('-', '')
-    writePath = writeM250Path.replace('{}', date)
-    f = open(path, mode='r', encoding='utf-8')
-    count = 0
-    end_date = utils.getTradeCal(1)
-    result = ''
+    try:
+        print("M250筛选，文件写入执行开始")
+        date = str(datetime.now().date()).replace('-', '')
+        writePath = writeM250Path.replace('{}', date)
+        f = open(path, mode='r', encoding='utf-8')
+        count = 0
+        end_date = utils.getTradeCal(1)
+        result = ''
 
-    count = 0
-    for line in qz_value:
-        print(line)
-        line = line.replace('\n', '')
-        first = line[0]
-        if first == '0' or first == '3':
-            line = line + '.SZ'
-        elif first == '6':
-            line = line + '.SH'
-        print(line)
-        res = utils.getM250(line, end_date, 'ma250')
-        if res is not None and res[0 : 3] != '688':
+        count = 0
+        for line in qz_value:
+            print(line)
+            line = line.replace('\n', '')
+            first = line[0]
+            if first == '0' or first == '3':
+                line = line + '.SZ'
+            elif first == '6':
+                line = line + '.SH'
+            print(line)
+            res = utils.getM250(line, end_date, 'ma250')
+            if res is not None and res[0 : 3] != '688':
 
-            count = count + 1
-            temp = res[0 : 6]
-            result = result + temp + '\n'
+                count = count + 1
+                temp = res[0 : 6]
+                result = result + temp + '\n'
 
-    print("ma250个数：" + str(count))
+        print("ma250个数：" + str(count))
 
-    f1 = open(writePath, 'w')
+        f1 = open(writePath, 'w')
 
-    f1.write(result)
-    f1.close()
+        f1.write(result)
+        f1.close()
 
-    print("M250筛选，文件写入执行结束")
+        print("M250筛选，文件写入执行结束")
+    except Exception as e:
+        print(traceback.format_exc())
+        logging.error('错误，原因为: ' + str(e))
 
 def writeM120():
     print("M120筛选，文件写入执行开始")
