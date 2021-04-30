@@ -42,7 +42,10 @@ def writeM250():
                 result = result + temp + '\n'
 
         print("ma250个数：" + str(count))
-
+        print('-------------输出结果开始------------------')
+        print(result)
+        print('-------------输出结果结束------------------')
+        
         f1 = open(writePath, 'w')
 
         f1.write(result)
@@ -82,6 +85,9 @@ def writeM120():
             result = result + temp + '\n'
 
     print("ma120个数：" + str(count))
+    print('-------------输出结果开始------------------')
+    print(result)
+    print('-------------输出结果结束------------------')
 
     f1 = open(writePath, 'w')
 
@@ -119,6 +125,9 @@ def writeM60():
             result = result + temp + '\n'
 
     print("ma60个数：" + str(count))
+    print('-------------输出结果开始------------------')
+    print(result)
+    print('-------------输出结果结束------------------')
 
     f1 = open(writePath, 'w')
 
@@ -155,6 +164,9 @@ def writeM30():
             result = result + temp + '\n'
 
     print("ma30个数：" + str(count))
+    print('-------------输出结果开始------------------')
+    print(result)
+    print('-------------输出结果结束------------------')
 
     f1 = open(writePath, 'w')
 
