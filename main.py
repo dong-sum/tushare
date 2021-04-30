@@ -6,12 +6,10 @@ import os
 QZ_VALUE_1 = os.environ['QZ_VALUE_1']
 qz_value = QZ_VALUE_1.split('&')
 
-path = './resource/data.txt'
 writeM250Path = './result/{}/filter{}-M250.txt'
 writeM120Path = './result/{}/filter{}-M120.txt'
 writeM60Path = './result/{}/filter{}-M60.txt'
 writeM30Path = './result/{}/filter{}-M30.txt'
-# sortPath = './resource/sort.txt'
 
 date = str(datetime.now().date()).replace('-', '')
 isExists = os.path.exists('./result/' + date)
@@ -30,14 +28,13 @@ def writeM250():
  
         count = 0
         for line in qz_value:
-            print(line)
             line = line.replace('\n', '')
             first = line[0]
             if first == '0' or first == '3':
                 line = line + '.SZ'
             elif first == '6':
                 line = line + '.SH'
-            print(line)
+        
             res = utils.getM250(line, end_date, 'ma250')
             if res is not None and res[0 : 3] != '688':
 
@@ -78,7 +75,7 @@ def writeM120():
             line = line + '.SZ'
         elif first == '6':
             line = line + '.SH'
-        print(line)
+      
         res = utils.getM120(line, end_date, 'ma120')
         if res is not None and res[0 : 3] != '688':
 
@@ -116,7 +113,7 @@ def writeM60():
             line = line + '.SZ'
         elif first == '6':
             line = line + '.SH'
-        print(line)
+       
         res = utils.getM120(line, end_date, 'ma60')
         if res is not None and res[0 : 3] != '688':
             count = count + 1
@@ -154,7 +151,7 @@ def writeM30():
             line = line + '.SZ'
         elif first == '6':
             line = line + '.SH'
-        print(line)
+       
         res = utils.getM120(line, end_date, 'ma30')
         if res is not None and res[0 : 3] != '688':
             count = count + 1
@@ -169,7 +166,6 @@ def writeM30():
     f1.close()
 
     print("M30筛选，文件写入执行结束")
-
 
 #####################################
 
