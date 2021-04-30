@@ -177,7 +177,19 @@ def writeM30():
 
 #####################################
 
-writeM250()
-writeM120()
-writeM60()
-writeM30()
+#writeM250()
+#writeM120()
+#writeM60()
+#writeM30()
+
+
+threads = []
+threads.append(threading.Trhead(target=writeM250))
+threads.append(threading.Trhead(target=writeM120))
+threads.append(threading.Trhead(target=writeM60))
+threads.append(threading.Trhead(target=writeM30))
+
+for t in threads:
+    print(t)
+    t.start()
+
