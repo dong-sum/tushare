@@ -1,6 +1,5 @@
 import utils
 from datetime import datetime
-import _thread
 import os
 import threading
 
@@ -185,10 +184,10 @@ def writeM30():
 
 
 threads = []
-threads.append(threading.Trhead(target=writeM250))
-threads.append(threading.Trhead(target=writeM120))
-threads.append(threading.Trhead(target=writeM60))
-threads.append(threading.Trhead(target=writeM30))
+threads.append(threading.Thread(target=writeM250))
+threads.append(threading.Thread(target=writeM120))
+threads.append(threading.Thread(target=writeM60))
+threads.append(threading.Thread(target=writeM30))
 
 for t in threads:
     print(t)
