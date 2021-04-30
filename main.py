@@ -21,7 +21,6 @@ def writeM250():
         print("M250筛选，文件写入执行开始")
         date = str(datetime.now().date()).replace('-', '')
         writePath = writeM250Path.replace('{}', date)
-        f = open(path, mode='r', encoding='utf-8')
         count = 0
         end_date = utils.getTradeCal(1)
         result = ''
@@ -61,7 +60,6 @@ def writeM120():
     # isExists = os.path.exists(writePath)
     # if not isExists:
     #     os.makedirs(writePath)
-    f = open(path, mode='r', encoding='utf-8')
     count = 0
     end_date = utils.getTradeCal(1)
     # result = end_date + '\n'
@@ -100,7 +98,6 @@ def writeM60():
     # isExists = os.path.exists(writePath)
     # if not isExists:
     #     os.makedirs(writePath)
-    f = open(path, mode='r', encoding='utf-8')
     count = 0
     end_date = utils.getTradeCal(1)
     result = ''
@@ -138,7 +135,6 @@ def writeM30():
     # isExists = os.path.exists(writePath)
     # if not isExists:
     #     os.makedirs(writePath)
-    f = open(path, mode='r', encoding='utf-8')
     count = 0
     end_date = utils.getTradeCal(1)
     result = ''
