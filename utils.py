@@ -78,12 +78,12 @@ def getTradeCal(num):
     # 日历列
     # tempDf = df[['cal_date']]
     vol = 0
-    ts_code = "002007.SZ"
-    for index, row in tempdf.iterrows():
-        vol = vol + getVol(ts_code, row.cal_date)
+    #ts_code = "002007.SZ"
+    #for index, row in tempdf.iterrows():
+     #   vol = vol + getVol(ts_code, row.cal_date)
         # print(row.cal_date)
 
-    vol = vol / 50
+   # vol = vol / 50
     # print(ts_code + " 在50日均成交量：" + str(vol))
 
     if(len(tempdf) == 0):
