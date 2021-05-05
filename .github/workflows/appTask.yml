@@ -1,0 +1,34 @@
+name: tushare
+on:
+  push:
+    branches: main
+
+  workflow_dispatch:
+
+  schedule:
+    - cron: '0 17 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest    #github提供的虚拟环境
+
+    steps:
+      - uses: actions/checkout@v1     #检出整个项目的副本
+      - uses: actions/setup-python@v1
+        with:
+          python-version: '3.x'
+      - uses: actions/cache@v2     #缓存安装的依赖库，提高运行效率
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+
+      - name: '安装python三方库'
+        run: |
+          pip install -r requirements.txt
+      - name: '运行appUtils脚本'
+        run: |
+          python appUtils.py
+        env:
+          TS_TOKEN: ${{ secrets.TS_TOKEN }}
+          QZ_VALUE_1: ${{ secrets.QZ_VALUE_1 }}
+          QZ_VALUE_2: ${{ secrets.QZ_VALUE_2 }}
