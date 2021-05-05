@@ -1,4 +1,4 @@
-name: tushare
+name: appSign
 on:
   push:
     branches: main
@@ -22,9 +22,6 @@ jobs:
           path: ~/.cache/pip
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
 
-      - name: '安装python三方库'
-        run: |
-          pip install -r requirements.txt
       - name: '运行appUtils脚本'
         run: |
           python appUtils.py
