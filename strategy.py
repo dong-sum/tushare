@@ -20,6 +20,7 @@ if IN_CODE_2 is not None:
 TOKEN = os.environ['TS_TOKEN']
 ts.set_token(TOKEN)
 pro = ts.pro_api()
+res = '\n'
 
 #是否止损
 def cutLoss():
@@ -38,14 +39,15 @@ def cutLoss():
       
     df = ts.pro_bar(ts_code=code, adj='qfq', start_date="20190101", end_date=end_date,
                     ma=[5, 10, 20, 30, 60, 120, 250])
-    res = '------------------start----------------------'
+    res = res + '------------------start----------------------'
+    res = res + '\n' + data.loc[0, ['name']][0]
     res = res + '\n' + execute(code, df, 'ma250')
     res = res + '\n' + execute(code, df, 'ma120')
     res = res + '\n' + execute(code, df, 'ma60')
     res = res + '\n' + execute(code, df, 'ma30')
     res = res + '\n' + '-------------------end-----------------------'
     print('-------------------end-----------------------')
-    mailUtils.sendText('是否止损', res)
+   # mailUtils.sendText('是否止损', res)
 
     
 def execute(code, df, ma):
@@ -57,13 +59,14 @@ def execute(code, df, ma):
  
   if close_value < ma_value and pre_close_value < pre_ma_value:
     print(code + '如果止损线为' + ma + '，那么果断该卖了')
-    return code + '如果止损线为' + ma + '，那么果断该卖了'
+    return '如果止损线为' + ma + '，那么果断该卖了'
   else:
     print(code + '如果止损线为' + ma + '，那么再捂一捂哦，别着急卖')
-    return code + '如果止损线为' + ma + '，那么果断该卖了'
+    return '如果止损线为' + ma + '，那么再捂一捂哦，别着急卖'
     
     
-cutLoss()   
+cutLoss()  
+mailUtils.sendText('是否止损', res)
 
 
     
