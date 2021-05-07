@@ -40,7 +40,7 @@ def cutLoss():
       
     df = ts.pro_bar(ts_code=code, adj='qfq', start_date="20190101", end_date=end_date,
                     ma=[5, 10, 20, 30, 60, 120, 250])
-    res = res + '------------------start----------------------'
+    res = res + '\n' + '------------------start----------------------'
     res = res + '\n' + data.loc[0, ['name']][0]
     res = res + '\n' + execute(code, df, 'ma250')
     res = res + '\n' + execute(code, df, 'ma120')
