@@ -44,7 +44,9 @@ def execute(code, df, ma):
   close_value = df.loc[0, ['close']][0]
  
   if close_value < ma_value and pre_close_value < pre_ma_value:
-    print(code + '如果止损线为' + ma + '，那么该卖了')
+    print(code + '如果止损线为' + ma + '，那么果断该卖了')
+  elif:
+    print(code + '如果止损线为' + ma + '，那么再捂一捂哦，别着急卖')
     
     
 cutLoss()   
