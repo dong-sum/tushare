@@ -50,4 +50,8 @@ def execute(code, df, ma):
     
     
 cutLoss()   
+
+
+data = pro.stock_basic(ts_code='600801.SH')
+print(data.loc[0], ['name'])
     
