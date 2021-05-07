@@ -20,11 +20,11 @@ if IN_CODE_2 is not None:
 TOKEN = os.environ['TS_TOKEN']
 ts.set_token(TOKEN)
 pro = ts.pro_api()
-global res
 
 #是否止损
 def cutLoss():
   end_date = utils.getTradeCal(1)
+  global res
   for code in code_value:
     code = code.replace('\n', '')
     first = code[0]
