@@ -102,6 +102,8 @@ def getM120(ts_code, end_date, ma):
         df = ts.pro_bar(ts_code=ts_code, adj='qfq', start_date="20190101", end_date=end_date,
                     ma=[5, 10, 20, 30, 60, 120, 250])
         dict[ts_code] = df
+    else:
+        df = dict[ts_code]
     # print(ts_code)
     if df is None:
         return
@@ -183,6 +185,8 @@ def getM250(ts_code, end_date, ma):
         df = ts.pro_bar(ts_code=ts_code, adj='qfq', start_date="20190101", end_date=end_date,
                     ma=[5, 10, 20, 30, 60, 120, 250])
         dict[ts_code] = df
+    else:
+        df = dict[ts_code]
     # print(ts_code)
     if df is None:
         return
