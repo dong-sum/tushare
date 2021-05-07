@@ -4,7 +4,7 @@ from email.header import Header
 from datetime import datetime
 
 #邮件参数，由host&user&pass组成
-mail_env = os.environ['MAIL_EVN']
+mail_env = os.environ['MAIL_ENV']
 mail_value = mail_env.split('&')
 
 mail_host = mail_value[0]
