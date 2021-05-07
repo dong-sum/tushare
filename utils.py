@@ -6,7 +6,7 @@ import os
 import traceback
 
 def init():
-    global dict
+    global dict()
     TOKEN = os.environ['TS_TOKEN']
     ts.set_token(TOKEN)
     global pro
