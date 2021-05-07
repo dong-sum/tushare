@@ -2,6 +2,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.header import Header
 from datetime import datetime
+import os
 
 #邮件参数，由host&user&pass组成
 mail_env = os.environ['MAIL_ENV']
