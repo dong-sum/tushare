@@ -11,6 +11,10 @@ import utils
 IN_CODE = os.environ['IN_CODE']  #从环境变量中获取要判断的代码 用&分割
 code_value = IN_CODE.split('&')
 
+IN_CODE_2 = os.environ['IN_CODE_2']
+if IN_CODE_2 is not None:
+  code_value.append(IN_CODE_2)
+
 
 TOKEN = os.environ['TS_TOKEN']
 ts.set_token(TOKEN)
