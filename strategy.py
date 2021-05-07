@@ -27,6 +27,10 @@ def cutLoss():
     elif first == '6':
       code = code + '.SH'
 
+    print('------------------start----------------------')
+    data = pro.stock_basic(ts_code='600801.SH')
+    print(data.loc[0, ['name']])
+      
     df = ts.pro_bar(ts_code=code, adj='qfq', start_date="20190101", end_date=end_date,
                     ma=[5, 10, 20, 30, 60, 120, 250])
     
@@ -34,6 +38,7 @@ def cutLoss():
     execute(code, df, 'ma120')
     execute(code, df, 'ma60')
     execute(code, df, 'ma30')
+    print('-------------------end-----------------------')
 
     
 def execute(code, df, ma):
@@ -52,6 +57,4 @@ def execute(code, df, ma):
 cutLoss()   
 
 
-data = pro.stock_basic(ts_code='600801.SH')
-print(data.loc[0, ['name']])
     
