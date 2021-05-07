@@ -34,3 +34,4 @@ jobs:
           QZ_VALUE_2: ${{ secrets.QZ_VALUE_2 }}
           IN_CODE: ${{ secrets.IN_CODE }}
           IN_CODE_2: ${{ secrets.IN_CODE_2 }}
+          MAIL_ENV: ${{ secrets.MAIL_ENV }}
