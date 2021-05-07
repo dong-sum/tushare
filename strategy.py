@@ -36,14 +36,14 @@ def cutLoss():
     execute(code, df, 'ma30')
 
     
-def execute(df, ma):
+def execute(code, df, ma):
   pre_ma_value = df.loc[1, [ma]]
   ma_value = df.loc[0, [ma]]
   #收盘价
   pre_close_value = df.loc[1, ['close']]
   close_value = df.loc[0, ['close']]
   if close_value < ma_value and pre_close_value < pre_ma_value:
-    print('如果止损线为' + ma + '，那么该卖了')
+    print(code + '如果止损线为' + ma + '，那么该卖了')
     
     
 cutLoss()   
