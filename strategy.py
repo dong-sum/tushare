@@ -25,6 +25,7 @@ pro = ts.pro_api()
 def cutLoss():
   end_date = utils.getTradeCal(1)
   global res
+  res = ''
   for code in code_value:
     code = code.replace('\n', '')
     first = code[0]
