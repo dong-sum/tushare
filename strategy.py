@@ -53,5 +53,5 @@ cutLoss()
 
 
 data = pro.stock_basic(ts_code='600801.SH')
-print(data.loc[0], ['name'])
+print(data.loc[0], ['name'][2])
     
