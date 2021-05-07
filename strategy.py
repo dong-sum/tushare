@@ -8,7 +8,7 @@ import utils
 
 #增加判断是否止损的策略，每日下午5点执行
 
-IN_CODE = os.environ['IN_CODE']  //从环境变量中获取要判断的代码 用&分割
+IN_CODE = os.environ['IN_CODE']  #从环境变量中获取要判断的代码 用&分割
 code_value = IN_CODE.split('&')
 
 
