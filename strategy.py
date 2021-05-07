@@ -5,6 +5,7 @@ import time
 import os
 import traceback
 import utils
+import mailUtils
 
 #增加判断是否止损的策略，每日下午5点执行
 
@@ -37,12 +38,14 @@ def cutLoss():
       
     df = ts.pro_bar(ts_code=code, adj='qfq', start_date="20190101", end_date=end_date,
                     ma=[5, 10, 20, 30, 60, 120, 250])
-    
-    execute(code, df, 'ma250')
-    execute(code, df, 'ma120')
-    execute(code, df, 'ma60')
-    execute(code, df, 'ma30')
+    res = '------------------start----------------------'
+    res = res + '\n' + execute(code, df, 'ma250')
+    res = res + '\n' + execute(code, df, 'ma120')
+    res = res + '\n' + execute(code, df, 'ma60')
+    res = res + '\n' + execute(code, df, 'ma30')
+    res = res + '\n' + '-------------------end-----------------------'
     print('-------------------end-----------------------')
+    mailUtils.sendText('是否止损', res)
 
     
 def execute(code, df, ma):
