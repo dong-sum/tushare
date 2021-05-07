@@ -42,6 +42,10 @@ def execute(code, df, ma):
   #收盘价
   pre_close_value = df.loc[1, ['close']]
   close_value = df.loc[0, ['close']]
+  print(pre_ma_value)
+  print(ma_value)
+  print(pre_close_value)
+  print(close_value)
   if close_value < ma_value and pre_close_value < pre_ma_value:
     print(code + '如果止损线为' + ma + '，那么该卖了')
     
