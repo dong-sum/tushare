@@ -33,4 +33,4 @@ jobs:
           QZ_VALUE_1: ${{ secrets.QZ_VALUE_1 }}
           QZ_VALUE_2: ${{ secrets.QZ_VALUE_2 }}
           IN_CODE: ${{ secrets.IN_CODE }}
-          IN_CODE: ${{ secrets.IN_CODE_2 }}
+          IN_CODE_2: ${{ secrets.IN_CODE_2 }}
