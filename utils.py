@@ -5,8 +5,9 @@ import time
 import os
 import traceback
 
+
+dict = {}
 def init():
-    dict = {}
     TOKEN = os.environ['TS_TOKEN']
     ts.set_token(TOKEN)
     global pro
