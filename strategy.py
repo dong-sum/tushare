@@ -29,7 +29,7 @@ def cutLoss():
 
     print('------------------start----------------------')
     data = pro.stock_basic(ts_code='600801.SH')
-    print(data.loc[0, ['name']])
+    print(data.loc[0, ['name']][0])
       
     df = ts.pro_bar(ts_code=code, adj='qfq', start_date="20190101", end_date=end_date,
                     ma=[5, 10, 20, 30, 60, 120, 250])
