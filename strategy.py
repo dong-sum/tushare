@@ -13,7 +13,7 @@ IN_CODE = os.environ['IN_CODE']  #从环境变量中获取要判断的代码 用
 code_value = IN_CODE.split('&')
 
 IN_CODE_2 = os.environ['IN_CODE_2']
-if IN_CODE_2 is not None and IN_CODE_2 != '':
+if IN_CODE_2 is not None and !IN_CODE_2.isspace():
   code_value.append(IN_CODE_2)
 
 
